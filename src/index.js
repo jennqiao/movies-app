@@ -41,22 +41,38 @@ class Movies extends React.Component {
   }
 
   handleAdd(input) {
-  	let movie = {
-  		title: input,
-  		hasWatched: false
-  	};
+  	if (input.length > 0) {
+  		
+	  	let movie = {
+	  		title: input,
+	  		hasWatched: false
+	  	};
+
+	  	let copiedMovies = this.state.movies.slice();
+	  	copiedMovies.push(movie);
+	  	this.setState({
+	  			movies: copiedMovies,
+	  	});
+
+	  	$('input').val('');
+
+	  }
+  	}
+
+  handleWatchToggle (movie) {
 
   	let copiedMovies = this.state.movies.slice();
-  	copiedMovies.push(movie);
-  	this.setState({
-  		movies: copiedMovies
-  	});
 
-  	$('input').val('');
+  	for (var i=0; i<copiedMovies.length; i++) {
+  		if (copiedMovies[i].title === movie.title) {
+  			copiedMovies[i].hasWatched = !copiedMovies[i].hasWatched;
 
+  			this.setState({
+  				movies: copiedMovies
+  			})
+  		}
+  	}
   }
-
-
 
   render() {
   	if (this.state.noResults) {
@@ -74,10 +90,10 @@ class Movies extends React.Component {
         	<h1 className="page-header">Jenn's MovieList</h1>
         	<Add handleAdd={this.handleAdd.bind(this)}/>
         	<Search handleSearch={this.handleSearch.bind(this)}/>
-        	{this.state.movies.map( (movie) => {
+        	{this.state.movies.map( (movie, index) => {
         		if (movie.title.toLowerCase().includes(this.state.searchTerm)) {
         	// 	let hasResults = true;
-        		return <Movie movie={movie} />
+        		return <Movie movie={movie} key={index} handleWatchToggle = {this.handleWatchToggle.bind(this)}/>
         		}
         	})}
       		</div>

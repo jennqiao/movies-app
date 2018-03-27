@@ -17,12 +17,17 @@
 }
 
 .watchToggle {
-	background-color: #55f153;
-	float: right;
+/*	background-color: #55f153;
+*/	float: right;
 }
 
 input {
 	margin-bottom: 15px;
 	width: 250px;
 	margin-right: 6px;
+}
+
+.watchToggleGreen {
+	background-color: #55f153;
+	float: right;
 }

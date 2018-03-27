@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';	
 
-var Movie = ({movie}) => (
+var Movie = ({movie, handleWatchToggle}) => (
 	
 		<div className = "movie container border">{movie.title}
-			<span><button className="watchToggle">Watched</button></span>
+			<span><button className={movie.hasWatched ? "watchToggleGreen" : "watchToggle"} onClick={ () => handleWatchToggle(movie) }>Watched</button></span>
 		</div>
 	
 )

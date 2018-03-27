@@ -6,7 +6,7 @@ class Add extends React.Component {
   constructor(props) {
 	super(props);
 	this.state = {
-		input: "test"
+		input: ''
 	};
   }
 
@@ -21,7 +21,7 @@ class Add extends React.Component {
 	return (
 		<div>
 		<input type='text' placeholder="Add movie title here" onChange={this.handleUserInput.bind(this)}></input>
-		<button className="addButton" onClick={ () => {this.props.handleAdd(this.state.input)}} >Add</button></div>
+		<button className="addButton" onClick={ () => {this.props.handleAdd(this.state.input); this.setState({input: ''})}} >Add</button></div>
 	)
   }
 
