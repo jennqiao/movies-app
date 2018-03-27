@@ -1,0 +1,28 @@
+.app {
+
+}
+
+.page-header {
+	margin-top: 15px;
+	margin-bottom: 50px;	
+}
+
+.movie {
+	padding: 10px;
+	margin-bottom: 15px;
+}
+
+.addButton {
+	background-color: #55f153;
+}
+
+.watchToggle {
+	background-color: #55f153;
+	float: right;
+}
+
+input {
+	margin-bottom: 15px;
+	width: 250px;
+	margin-right: 6px;
+}
